@@ -7,13 +7,14 @@ using namespace std;
 //VERY IMP FUNCTION!!!!!!!!!!!!!!!
 void findAllCommonDivisorsArr(vector<int>& nums)
 {
+    //STEP 1: Find GCD of all nos. in array
     int g = nums[0];
     for(auto i = 1; i<nums.size(); i++)
         g = __gcd(nums[i],g);
 
     
     set<int> divisors;
-    
+    //STEP 2: Find all factors of the above calc GCD, that'll be our set of all common divisors for the given array!!!
     for(int i = 1; i*i<=g; i++)
     {
         if(g%i==0)
