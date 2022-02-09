@@ -1,29 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-void util(unsigned int a,unsigned int b,unsigned int c, int x, int idx)
-{
-    if(idx==32)
-        return;
-    if(x&1)
-    {
-        util((a<<1)|1,(b<<1)|1, (c<<1)|1);
-        
-    }
-    else
-    {
-
-    }
-}
+#define int long long
+#define ios ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
 void solve()
 {
     int n;
+    cin>>n;
+    vector<int> a(2*n);
 
+    for(int i = 0;i<2*n; i++)
+    {
+        cin>>a[i];
+    }
+    sort(a.begin(),a.end());
+    
+    int curr = 0;
+    int i  = 0;
+    while(i<2*n)
+    {
+        if(a[i]!=curr)
+        { break;}
+        while(a[i]==curr)
+            i++;
+        curr++;
+    }
+    cout<<curr<<endl;
 }
 
-int main()
+int32_t main()
 {
+    ios;
     int t;
     cin>>t;
     while(t--)
